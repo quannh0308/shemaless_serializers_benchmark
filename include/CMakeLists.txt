@@ -20,7 +20,7 @@ set(MSGPACK_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/msgpack/include)
 add_subdirectory(benchmark)
 set(GOOGLE_BENCHMARK_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR}/benchmark/include)
 
-add_subdirectory(ion-c)
+#add_subdirectory(ion-c)
 
 
 # ThongPV - libcbor - ALTERNATIVE
