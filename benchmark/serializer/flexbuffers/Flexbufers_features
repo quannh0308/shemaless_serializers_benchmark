@@ -1,0 +1,50 @@
+#Flexbuffers new version 
+
+##Add more types
+add more 10 types, they are blob type and 9 typed vectors with fixed byte witdth of length
+
+```c++
+enum Type : uint8_t {
+  TYPE_NULL = 0,
+  TYPE_INT = 1,
+  TYPE_UINT = 2,
+  TYPE_FLOAT = 3,
+  // Types above stored inline, types below over an offset.
+  TYPE_KEY = 4,
+  TYPE_STRING = 5,
+  TYPE_INDIRECT_INT = 6,
+  TYPE_INDIRECT_UINT = 7,
+  TYPE_INDIRECT_FLOAT = 8,
+  TYPE_MAP = 9,
+  TYPE_VECTOR = 10,        // Untyped.
+  TYPE_VECTOR_INT = 11,    // Typed any size (stores no type table).
+  TYPE_VECTOR_UINT = 12,
+  TYPE_VECTOR_FLOAT = 13,
+  TYPE_VECTOR_KEY = 14,
+  TYPE_VECTOR_INT2 = 15,   // Typed tuple (no type table, no size field).
+  TYPE_VECTOR_UINT2 = 16,
+  TYPE_VECTOR_FLOAT2 = 17,
+  TYPE_VECTOR_INT3 = 18,   // Typed triple (no type table, no size field).
+  TYPE_VECTOR_UINT3 = 19,
+  TYPE_VECTOR_FLOAT3 = 20,
+  TYPE_VECTOR_INT4 = 21,   // Typed quad (no type table, no size field).
+  TYPE_VECTOR_UINT4 = 22,
+  TYPE_VECTOR_FLOAT4 = 23,
+  TYPE_BLOB = 24,
+};
+```
+##Builder constructor with initialize size of buffer and builder flag
+Builder constructor allow to initialize buffer with size, and builder flag to optimize memory space but less performance.
+
+```
+enum BuilderFlag {
+  kBuilderFlagNone = 0,
+  kBuilderFlagShareKeys = 1,
+  kBuilderFlagShareStrings = 2,
+  kBuilderFlagShareKeysAndStrings = 3,
+  kBuilderFlagShareKeyVectors = 4, //not yet implemented
+  kBuilderFlagShareAll = 7,     //not yet implemented
+};
+```
+
+
